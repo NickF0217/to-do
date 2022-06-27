@@ -5,17 +5,13 @@ const details = document.querySelector('#details');
 
 let mainList = [];
 
+let entry = document.createElement('div');
+entry.textContent = "Add an entry to see it's deets here";
+entry.id = 'entry-details';
+details.appendChild(entry);
+
 function addToList(listing) {
     mainList.push(listing);
-}
-
-function addToDetails(listing) {
-    const entry = document.createElement('div');
-    entry.textContent = `${listing.title}\r\n${listing.description}\r\n
-    ${listing.dueDate}\r\n${listing.priority}`;
-
-    entry.className = 'right-entry';
-    details.appendChild(entry);
 }
 
 function addToLeftDom(listing) {
@@ -26,6 +22,13 @@ function addToLeftDom(listing) {
     entry.addEventListener('click', () => {
         addToDetails(listing);
     });
+}
+
+function addToDetails(listing) {
+    entry.textContent = "";
+    entry.textContent = `${listing.title}\r\n${listing.description}\r\n
+        ${listing.dueDate}\r\n${listing.priority}`;
+    entry.className = 'right-entry';
 }
 
 const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzzy lil heads", 
