@@ -14,3 +14,13 @@
     grid-column: 2 / 4;
     background-color: #09f8;
 }
+
+.left-entry {
+    font-size: 18pt;
+}
+
+.right-entry {
+    font-size: 18pt;
+    display: flex;
+    flex-direction: column;
+}
