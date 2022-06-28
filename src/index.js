@@ -5,10 +5,10 @@ const details = document.querySelector('#details');
 
 let mainList = [];
 
-let entry = document.createElement('div');
-entry.textContent = "Add an entry to see it's deets here";
-entry.id = 'entry-details';
-details.appendChild(entry);
+let detailEntry = document.createElement('div');
+detailEntry.textContent = "Add an entry to see it's deets here";
+detailEntry.id = 'entry-details';
+details.appendChild(detailEntry);
 
 function addToList(listing) {
     mainList.push(listing);
@@ -25,12 +25,14 @@ function addToLeftDom(listing) {
 }
 
 function addToDetails(listing) {
-    entry.textContent = "";
-    entry.textContent = `${listing.title}\r\n${listing.description}\r\n
+    detailEntry.textContent = "";
+    detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
         ${listing.dueDate}\r\n${listing.priority}`;
-    entry.className = 'right-entry';
+    detailEntry.className = 'right-entry';
 }
 
+
+/* Entries to test DOM. Will be removed */
 const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzzy lil heads", 
 "June 26, 00:00", "Priority: High");
 addToList(testListing);
@@ -43,4 +45,3 @@ const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Do the 
  addToLeftDom(anotherTest);
 
 console.log(mainList);
-
