@@ -1,7 +1,14 @@
 import makeNewListing from "./add-listing";
+import {
+    addNewBtn,
+    modalClose,
+} from "./modal.js";
 
 const leftSide = document.querySelector('#left-side');
 const details = document.querySelector('#details');
+
+addNewBtn;
+modalClose;
 
 let mainList = [];
 
