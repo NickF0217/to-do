@@ -9,6 +9,7 @@ const details = document.querySelector('#details');
 
 addNewBtn;
 modalClose;
+const confirmBtn = document.querySelector('#confirm-entry');
 
 let mainList = [];
 
@@ -38,6 +39,16 @@ function addToDetails(listing) {
     detailEntry.className = 'right-entry';
 }
 
+confirmBtn.addEventListener('click', () => {
+    const title = document.getElementsByName('title')[0].value;
+    const description = document.getElementsByName('description')[0].value;
+    const dueDate = document.getElementsByName('due-date')[0].value;
+    const priority = document.getElementsByName('priority')[0].value;
+    const newListing =  makeNewListing(title, description, dueDate, priority);
+    addToList(newListing);
+    addToLeftDom(newListing);
+
+})
 
 /* Entries to test DOM. Will be removed */
 const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzzy lil heads", 
