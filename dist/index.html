@@ -10,7 +10,28 @@
 </head>
 <body>
     <div id="main" class="main">
+        <button id="add-new">Add entry</button>
+        <div id="modal-bg" class="modal-bg">
+            <div id="modal" class="modal">
+                <h3>New entry</h3>
+                <label for="title">Title: </label>
+                <input type="text" name="title">
+
+                <label for="description">Short description: </label>
+                <input type="text" name="description">
+
+                <label for="due-date">Due date & time: </label>
+                <input type="text" name="due-date">
+
+                <label for="priority">Priority: </label>
+                <input type="text" name="priority">
+
+                <button>Add entry</button>
+                <span class="modal-close" id="modal-close">X</span>
+            </div>
+        </div>
         <div id="left-side" class="left">
+            
         </div>
 
         <div id="details" class="details">
