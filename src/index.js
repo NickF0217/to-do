@@ -26,6 +26,13 @@ function addToLeftDom(listing) {
     const entry = document.createElement('div');
     entry.textContent = `${listing.title}`;
     entry.className = 'left-entry';
+    if (listing.priority == "Low") {
+        entry.style.border = '2px solid #0f0';
+    } else if (listing.priority == "Medium") {
+        entry.style.border = '2px solid rgb(246, 255, 0)';
+    } else if (listing.priority == "High") {
+        entry.style.border = '2px solid #FF8C00';
+    }
     leftSide.appendChild(entry);
     entry.addEventListener('click', () => {
         addToDetails(listing);
@@ -36,6 +43,14 @@ function addToDetails(listing) {
     detailEntry.textContent = "";
     detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
         ${listing.dueDate}\r\n${listing.priority}`;
+
+    if (listing.priority == "Low") {
+        detailEntry.style.border = '3px solid #0f0';
+     } else if (listing.priority == "Medium") {
+        detailEntry.style.border = '3px solid rgb(246, 255, 0)';
+     } else if (listing.priority == "High") {
+        detailEntry.style.border = '3px solid #FF8C00';
+     }
     detailEntry.className = 'right-entry';
 }
 
@@ -55,7 +70,6 @@ const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzz
 "June 26, 00:00", "Priority: High");
 addToList(testListing);
 addToLeftDom(testListing);
-// addToDetails(testListing);
 
 const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Do the best you can.",
  'June 27, 14:00', "Priority: Low");
