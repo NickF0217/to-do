@@ -24,7 +24,8 @@ function addToList(listing) {
 
 function addToLeftDom(listing) {
     const entry = document.createElement('div');
-    entry.textContent = `${listing.title}`;
+    // entry.textContent = `${listing.title}`;
+    entry.innerHTML = listing.title + '<br />'+ `Due: ${listing.dueDate}`;
     entry.className = 'left-entry';
     if (listing.priority == "Low") {
         entry.style.border = '2px solid #0f0';
@@ -41,15 +42,17 @@ function addToLeftDom(listing) {
 
 function addToDetails(listing) {
     detailEntry.textContent = "";
-    detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
-        ${listing.dueDate}\r\n${listing.priority}`;
+    // detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
+    //     ${listing.dueDate}\r\n${listing.priority}`;
+    detailEntry.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
+        listing.dueDate +'<br />'+ listing.priority;
 
     if (listing.priority == "Low") {
-        detailEntry.style.border = '3px solid #0f0';
+        detailEntry.style.border = '4px solid #0f0';
      } else if (listing.priority == "Medium") {
-        detailEntry.style.border = '3px solid rgb(246, 255, 0)';
+        detailEntry.style.border = '4px solid rgb(246, 255, 0)';
      } else if (listing.priority == "High") {
-        detailEntry.style.border = '3px solid #FF8C00';
+        detailEntry.style.border = '4px solid #FF8C00';
      }
     detailEntry.className = 'right-entry';
 }

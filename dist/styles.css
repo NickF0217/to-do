@@ -23,7 +23,7 @@
 
 .left-entry {
     font-size: 18pt;
-    font-family: 'Courgette', sans-serif;
+    font-family: sans-serif;
     margin-top: 4px;
     margin-bottom: 4px;
     display: flex;
@@ -97,4 +97,8 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+.finished {
+    border-color: #33C5FF;
 }
