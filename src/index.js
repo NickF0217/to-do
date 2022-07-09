@@ -3,6 +3,7 @@ import {
     addNewBtn,
     modalClose,
 } from "./modal.js";
+// import changeStatus from "./status-btn.js";
 
 const leftSide = document.querySelector('#left-side');
 const details = document.querySelector('#details');
@@ -45,7 +46,7 @@ function addToDetails(listing) {
     // detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
     //     ${listing.dueDate}\r\n${listing.priority}`;
     detailEntry.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
-        listing.dueDate +'<br />'+ listing.priority;
+        listing.dueDate +'<br />'+ `Priority: ${listing.priority}`;
 
     if (listing.priority == "Low") {
         detailEntry.style.border = '4px solid #0f0';
@@ -55,6 +56,13 @@ function addToDetails(listing) {
         detailEntry.style.border = '4px solid #FF8C00';
      }
     detailEntry.className = 'right-entry';
+
+    const statusBtn = document.createElement('button');
+    statusBtn.textContent = "Complete";
+    statusBtn.addEventListener('click', () => {
+        changeStatus(listing);
+    })
+    detailEntry.appendChild(statusBtn);
 }
 
 confirmBtn.addEventListener('click', () => {
@@ -67,6 +75,14 @@ confirmBtn.addEventListener('click', () => {
     addToLeftDom(newListing);
 
 })
+
+function changeStatus(listing) {
+    listing.priority = "Complete";
+    detailEntry.style.borderColor = "#00F";
+    detailEntry.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
+        listing.dueDate +'<br />'+ `Priority: ${listing.priority}`;
+    
+}
 
 /* Entries to test DOM. Will be removed */
 const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzzy lil heads", 

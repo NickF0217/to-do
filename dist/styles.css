@@ -50,6 +50,12 @@
     padding: 7px 13px;
 }
 
+.right-entry > button {
+    background-color: rgba(0, 183, 255, 0.539);
+    height: 30px;
+    width: 80px;
+}
+
 .modal-bg {
     position: fixed; 
     width: 100%;
