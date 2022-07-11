@@ -43,10 +43,11 @@ function addToLeftDom(listing) {
 
 function addToDetails(listing) {
     detailEntry.textContent = "";
-    // detailEntry.textContent = `${listing.title}\r\n${listing.description}\r\n
-    //     ${listing.dueDate}\r\n${listing.priority}`;
-    detailEntry.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
+
+    const textSection = document.createElement('p');
+    textSection.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
         listing.dueDate +'<br />'+ `Priority: ${listing.priority}`;
+    detailEntry.appendChild(textSection);
 
     if (listing.priority == "Low") {
         detailEntry.style.border = '4px solid #0f0';
@@ -61,6 +62,8 @@ function addToDetails(listing) {
     statusBtn.textContent = "Complete";
     statusBtn.addEventListener('click', () => {
         changeStatus(listing);
+        textSection.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
+            listing.dueDate +'<br />'+ `Priority: ${listing.priority}`;
     })
     detailEntry.appendChild(statusBtn);
 }
@@ -70,28 +73,30 @@ confirmBtn.addEventListener('click', () => {
     const description = document.getElementsByName('description')[0].value;
     const dueDate = document.getElementsByName('due-date')[0].value;
     const priority = document.getElementsByName('priority')[0].value;
-    const newListing =  makeNewListing(title, description, dueDate, priority);
+    const origPriority = document.getElementsByName('priority')[0].value;
+    const newListing =  makeNewListing(title, description, dueDate, priority, origPriority);
     addToList(newListing);
     addToLeftDom(newListing);
-
 })
 
 function changeStatus(listing) {
-    listing.priority = "Complete";
-    detailEntry.style.borderColor = "#00F";
-    detailEntry.innerHTML = listing.title + '<br />' + listing.description +'<br />'+ 
-        listing.dueDate +'<br />'+ `Priority: ${listing.priority}`;
-    
+    if (listing.priority != "Complete") {
+        listing.priority = "Complete";
+        detailEntry.style.borderColor = "#00F";
+    } else {
+        listing.priority = listing.origPriority;
+        detailEntry.style.borderColor = '#C259FF';
+        }
 }
 
 /* Entries to test DOM. Will be removed */
 const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzzy lil heads", 
-"June 26, 00:00", "Priority: High");
+"June 26, 00:00", "High", "High");
 addToList(testListing);
 addToLeftDom(testListing);
 
 const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Do the best you can.",
- 'June 27, 14:00', "Priority: Low");
+ 'June 27, 14:00', "Low", "Low");
  addToList(anotherTest);
  addToLeftDom(anotherTest);
 
