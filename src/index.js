@@ -13,6 +13,7 @@ modalClose;
 const confirmBtn = document.querySelector('#confirm-entry');
 
 let mainList = [];
+let completed = [];
 
 let detailEntry = document.createElement('div');
 detailEntry.textContent = "Add an entry to see it's deets here";
@@ -23,9 +24,9 @@ function addToList(listing) {
     mainList.push(listing);
 }
 
+
 function addToLeftDom(listing) {
     const entry = document.createElement('div');
-    // entry.textContent = `${listing.title}`;
     entry.innerHTML = listing.title + '<br />'+ `Due: ${listing.dueDate}`;
     entry.className = 'left-entry';
     if (listing.priority == "Low") {
@@ -82,10 +83,11 @@ confirmBtn.addEventListener('click', () => {
 function changeStatus(listing) {
     if (listing.priority != "Complete") {
         listing.priority = "Complete";
-        detailEntry.style.borderColor = "#00F";
+        detailEntry.classList.add('border-comp');
+        completed.push(listing);
     } else {
         listing.priority = listing.origPriority;
-        detailEntry.style.borderColor = '#C259FF';
+        detailEntry.classList.remove('border-comp');
         }
 }
 
@@ -100,4 +102,4 @@ const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Do the 
  addToList(anotherTest);
  addToLeftDom(anotherTest);
 
-console.log(mainList);
+// console.table(mainList);

@@ -51,9 +51,33 @@
 }
 
 .right-entry > button {
-    background-color: rgba(0, 183, 255, 0.539);
-    height: 30px;
-    width: 80px;
+    background-color: rgb(0, 195, 255);
+    height: 60px;
+    width: 120px;
+    border-radius: 10px;
+    border: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 16pt;
+    font-weight: bolder;
+}
+.right-entry > button:hover {
+    background-color: #44DD88;
+}
+
+.border-low {
+    border: 4px solid #0F0;
+}
+
+.border-med {
+    border: 4px solid #f6ff00;
+}
+
+.border-high {
+    border: 4px solid #FF8C00;
+}
+
+.border-comp {
+    border-color: #45BBFF !important;
 }
 
 .modal-bg {
