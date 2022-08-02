@@ -97,7 +97,7 @@ const testListing = makeNewListing("Pet cats", "Pet Dash and Molly on their fuzz
 addToList(testListing);
 addToLeftDom(testListing);
 
-const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Do the best you can.",
+const anotherTest = makeNewListing("Run", "Go for a run at the greenway. Die probably.",
  'June 27, 14:00', "Low", "Low");
  addToList(anotherTest);
  addToLeftDom(anotherTest);
